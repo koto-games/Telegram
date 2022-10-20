@@ -1,4 +1,6 @@
 # Telegram
-# import telebot
-# import yaml
-# import time
+
+нужны библиотеки
+>import telebot
+>import yaml
+>import time
