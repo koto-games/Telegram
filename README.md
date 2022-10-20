@@ -1,6 +1,6 @@
 # Telegram
 
 нужны библиотеки
->import telebot
->import yaml
->import time
+>telebot/n
+>yaml/n
+>time/n
