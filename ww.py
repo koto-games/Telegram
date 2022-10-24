@@ -8,7 +8,7 @@ with open("s.yaml", "r", -1, 'utf-8') as stream:
         www = yaml.safe_load(stream)
     except yaml.YAMLError as exc:
         print(exc)
-print(www)
+
 
 
 
@@ -30,17 +30,20 @@ def yt(message,uuu):
         elif www1['тип'] == 'paintings_text':
             img = open('картины/{}'.format(www1['изображение']), 'rb')
             bot.send_photo(message.chat.id, img, www1['text'])
+
         if 'следующее_событие' in www1:
             if 'задержка' in www1:
                 time.sleep(www1['задержка'])
             yt(message,www1['следующее_событие'])
+        if 'вывести_в_консоль' in www1:
+            print(www1['вывести_в_консоль'])
             
 
 
 
-
+print('сервер запущен')
 if __name__ == '__main__':
-    bot = telebot.TeleBot(www['HTTP API'], parse_mode=None)
+    bot = telebot.TeleBot(www['HTTP_API'], parse_mode=None)
 
     @bot.message_handler(commands=['start'])
     def start(message):
@@ -59,7 +62,9 @@ if __name__ == '__main__':
     @bot.message_handler(content_types=['text'])
     def bot_message(message):
         if message.chat.type == 'private':
-            yt(message,message.text)
+            gr = message.text.split('#')
+            if len(gr) == 1:
+                yt(message,message.text)
             
 
     bot.infinity_polling()
