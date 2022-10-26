@@ -37,8 +37,15 @@ def yt(message,uuu):
             yt(message,www1['следующее_событие'])
         if 'вывести_в_консоль' in www1:
             print(www1['вывести_в_консоль'])
+        if 'python' in www1:
+            uyt = 0
+            sggfe = ''
+            ytr = www1['python']
+            while uyt < len(www1['python']):
+                sggfe = sggfe+ytr[uyt]+'\n'
+                uyt = uyt+1
+            exec(sggfe)
             
-
 
 
 print('сервер запущен')
